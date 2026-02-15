@@ -1,6 +1,7 @@
-use anyhow::Ok;
 use clap::Parser;
 use std::path::PathBuf;
+
+mod parser;
 
 #[derive(Parser, Debug)]
 #[command(name = "oxydoc")]
