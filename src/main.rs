@@ -1,10 +1,29 @@
 use anyhow::Ok;
 use clap::Parser;
-use std::path::PathBuf;
+use std::{default, fmt::Display, path::PathBuf};
 use tracing_subscriber::{EnvFilter, fmt};
 
 mod parser;
 use parser::parse_openapi_spec;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default, clap::ValueEnum)]
+#[non_exhaustive]
+pub enum PageSize {
+    // a4 size (210 x 297mm)
+    #[default]
+    A4,
+    // letter size (8.5 x 11 in)
+    Letter,
+}
+
+impl Display for PageSize {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            PageSize::A4 => write!(f, "a4"),
+            PageSize::Letter => write!(f, "letter"),
+        }
+    }
+}
 
 #[derive(Parser, Debug)]
 #[command(name = "oxydoc", version = clap::crate_version!())]
@@ -20,7 +39,7 @@ struct Cli {
 
     // page size (a4 or letter)
     #[arg(short, long, default_value = "a4")]
-    page_size: String,
+    page_size: PageSize,
 
     // include schema definitions in the output
     #[arg(long)]
