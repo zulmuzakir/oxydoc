@@ -1,6 +1,6 @@
 use anyhow::Ok;
 use clap::Parser;
-use std::{default, fmt::Display, path::PathBuf};
+use std::{fmt::Display, path::PathBuf};
 use tracing_subscriber::{EnvFilter, fmt};
 
 mod parser;
