@@ -3,6 +3,7 @@ use clap::Parser;
 use std::{fmt::Display, path::PathBuf};
 use tracing_subscriber::{EnvFilter, fmt};
 
+mod generator;
 mod parser;
 use parser::parse_openapi_spec;
 
