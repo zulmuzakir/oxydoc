@@ -5,6 +5,7 @@ use anyhow::{Result};
 
 pub mod format;
 pub mod world;
+pub mod summary;
 
 use crate::PageSize;
 
