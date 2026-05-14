@@ -4,6 +4,7 @@ use openapiv3::OpenAPI;
 use anyhow::{Result};
 
 pub mod format;
+pub mod world;
 
 use crate::PageSize;
 

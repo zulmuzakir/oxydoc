@@ -1360,6 +1360,7 @@ dependencies = [
  "tracing",
  "tracing-subscriber",
  "typst",
+ "typst-assets",
 ]
 
 [[package]]
